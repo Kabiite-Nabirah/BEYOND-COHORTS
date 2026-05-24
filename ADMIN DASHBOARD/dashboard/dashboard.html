@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+<!-- --boxicons--> 
+ <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet" href="wheel.css">
+</head>
+<body>
+  
+
+    <div class = "sidebar">
+        <aside>
+             <div  class ="top">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Logo">
+                    <h2>Beyond<span class=" purple-blue">-cohort</span></h2>
+                </div>
+               
+             </div>
+             <ul>
+                     <li>
+                    <a href="../dashboard/dashboard.html" class="active">
+                   <i class='bx bx-grid-alt' ></i>
+                      <span class ="link-name">Dashboard</span>
+                 
+                    </a>
+                    </li>
+                  
+                    
+                     <li>
+                    <a href="../user/user.html">
+                     <i class='bx bx-user' ></i>
+                      <span class ="link-name">Users</span>
+                    
+                    </a>
+                    </li>
+
+                     <li>
+                    <a href="../Events/Events.html">
+                      <i class='bx bx-calendar' ></i>
+                      <span class ="link-name">Events</span>
+                    </a>
+                    </li>
+
+                     <li>
+                    <a href="../messages/messages.html">
+                   <i class='bx bx-message-rounded-dots' ></i>
+                      <span class ="link-name">Messages</span>
+                     
+                    </a>
+                    </li>
+                    
+                     <li>
+                    <a href="../report/reports.html">
+                      <i class='bx bx-bar-chart' ></i>
+                      <span class ="link-name">Reports</span>
+                    </a>
+                    </li>
+
+                     <li>
+                    <a href="../settings/settings.html">
+                      <i class='bx bx-cog' ></i>
+                      <span class ="link-name">Settings</span>
+                     
+                    </a>
+                    </li>
+                       
+                     <li>
+                    <a href="../profile/profile.html">
+                    <i class='bx bxs-user-circle' ></i>
+                      <span class ="link-name">profile</span> 
+                    </a>
+                    </li> 
+            
+                    </a>
+
+                    </li>
+                   
+                  </ul>
+                </div>
+         
+        </aside>   
+    </div>
+    <!-- End sidebar -->
+
+   <!-- MAIN CONTENT -->
+
+<div class="main-content">
+
+
+  <!-- TOP BAR -->
+
+  <div class="top-bar">
+    <h1>Dashboard</h1>
+
+     <div class="top-right">
+
+      <div class="search-box">
+
+        <i class="fa fa-search"></i>
+
+        <input
+          type="text"
+          id="searchEvent"
+          placeholder="Search here..."
+        >
+
+      </div>
+
+      <i class="fa fa-bell bell"></i>
+
+      <img
+        src="images/profile admin.jpeg"
+        class="admin-img"
+      >
+
+    </div>
+
+  </div>
+
+       
+                    
+ 
+
+    <!-- TOP BLUE CARD -->
+    <div class="top-card">
+      <div class="profile-info">
+        <h3> <i class='bx bx-crown' ></i> Hello Admin</h3>
+        <p>Welcome to Beyond Cohorts</p>
+      </div>
+
+     
+    <!-- STATS -->
+    <div class="stats-grid">
+
+      <div class="card">
+        <i class="fa-solid fa-users"></i>
+        <h4>Total Members</h4>
+        <h2 id="memberCount" class="count">120</h2>
+        <p>↗12 this month</p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-user-check"></i>
+        <h4>Active Users</h4>
+        <h2 id="activeCount" class="count">8</h2>
+        <p> ↗84% active rate</p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-briefcase"></i>
+        <h4>Job Posts</h4>
+        <h2 id="jobsCount" class="count">0</h2>
+        <p>↗5 this month</p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-calendar-days"></i>
+        <h4>Events Created</h4>
+        <h2 id="eventsCount" class="count">0</h2>
+        <p>3 upcoming</p>
+      </div>
+
+      <div class="card">
+        <i class="fa-brands fa-instagram"></i>
+        <h4>Messages Sent</h4>
+        <h2 id="messagesCount" class="count">0</h2>
+        <p>this week</p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <h4>Mentors</h4>
+        <h2 id="mentorsCount" class="count">0</h2>
+        <p>↗2 new mentors</p>
+      </div>
+
+    </div>
+
+    <!-- QUICK ACTIONS -->
+     <h3>Quick Actions</h3>
+    <div class="quick-actions">
+
+      <div class="action">
+        <i class="fa-solid fa-calendar-plus"></i>
+        
+    <button id="addEventBtn">
+        Add Event
+    </button>
+      </div>
+
+      <div class="action">
+        <i class="fa-solid fa-briefcase"></i>
+       
+    <button id="postJobBtn">
+        Post Opportunity
+    </button>
+      </div>
+
+      <div class="action">
+        <i class="fa-solid fa-circle-check"></i>
+        
+    <button id="verifyBtn">
+        Verify Users
+    </button>
+      </div>
+
+      <div class="action">
+        <i class="fa-solid fa-bullhorn"></i>
+       
+    <button id="AnnouncementBtn">
+        Announcements
+    </button>
+      </div>
+
+    </div>
+     
+
+    <h3>Analytics Overview</h3>
+   <section class="analytics">
+
+  <div class="analytics-card">
+    <h4>New Members</h4>
+    <h1>30</h1>
+    <p>↗12 this week</p>
+  </div>
+
+  <div class="analytics-card">
+    <h4>Active Users</h4>
+    <h1>41</h1>
+    <p> ↗84% active rate</p>
+  </div>
+
+  <div class="analytics-card">
+    <h4>Engagement</h4>
+    <h1>88%</h1>
+    <p> ↗High engagement</p>
+  </div>
+
+  <div class="analytics-card">
+    <h4>Total Events</h4>
+    <h1>12</h1>
+    <p>3 upcoming</p>
+  </div>
+
+</section>
+ 
+<title>Cohort Analytics Wh</title>
+
+
+
+</head>
+<body>
+
+<div class="analytics-container">
+
+    <h2>Cohort Analytics</h2>
+
+    <!-- WHEEL -->
+
+    <div class="wheel-wrapper">
+
+        <div class="analytics-wheel">
+
+            <div class="inner-circle">
+                <span>Total</span>
+                <h3 id="totalUsers">0</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- LEGEND -->
+
+    <div class="legend">
+
+        <div class="legend-item">
+            <span class="color cohort1"></span>
+            Cohort 1
+            <strong id="cohort1Count">
+                0
+            </strong>
+        </div>
+
+        <div class="legend-item">
+            <span class="color cohort2"></span>
+            Cohort 2
+            <strong id="cohort2Count">
+                0
+            </strong>
+        </div>
+
+        <div class="legend-item">
+            <span class="color cohort3"></span>
+            Cohort 3
+            <strong id="cohort3Count">
+                0
+            </strong>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="wheel.js"></script>
+
+</body>
+</html>
+    </section>
+    
+   <script src="admin-pro.js"></script> 
+    <script src="dashboard.js"></script>
+    
+</body>
+</html>

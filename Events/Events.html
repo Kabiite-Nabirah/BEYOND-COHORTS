@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Event Management</title>
+     <!-- boxicons  -->
+ <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <link
+    rel="stylesheet"
+    href="events.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  >
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+  <h2>Events</h2>
+
+                     <li>
+                    <a href="../Events/dashboard.html" class="active">
+                   <i class='bx bx-grid-alt' ></i>
+                      <span class ="link-name">Dashboard</span>
+                 
+                    </a>
+                    </li>
+                  
+                    
+                     <li>
+                    <a href="../user/user.html">
+                     <i class='bx bx-user' ></i>
+                      <span class ="link-name">Users</span>
+                    
+                    </a>
+                    </li>
+
+                     <li>
+                    <a href="../Events/Events.html">
+                      <i class='bx bx-calendar' ></i>
+                      <span class ="link-name">Events</span>
+                    </a>
+                    </li>
+
+                     <li>
+                    <a href="../messages/messages.html">
+                   <i class='bx bx-message-rounded-dots' ></i>
+                      <span class ="link-name">Messages</span>
+                     
+                    </a>
+                    </li>
+                    
+                     <li>
+                    <a href="../report/reports.html">
+                      <i class='bx bx-bar-chart' ></i>
+                      <span class ="link-name">Reports</span>
+                    </a>
+                    </li>
+
+                     <li>
+                    <a href="../settings/settings.html">
+                      <i class='bx bx-cog' ></i>
+                      <span class ="link-name">Settings</span>
+                     
+                    </a>
+                    </li>
+                       
+                     <li>
+                    <a href="../profile/profile.html">
+                    <i class='bx bxs-user-circle' ></i>
+                      <span class ="link-name">profile</span> 
+                    </a>
+                    </li> 
+            
+                    </a>
+
+                    </li>
+                   
+                  </ul>
+                </div>
+         
+        </aside>   
+    </div>
+
+</div>
+
+
+
+<!-- MAIN CONTENT -->
+
+<div class="main-content">
+
+
+  <!-- TOP BAR -->
+
+  <div class="top-bar">
+
+    <h1>
+      Event Management
+    </h1>
+
+    <div class="top-right">
+
+      <div class="search-box">
+
+        <i class="fa fa-search"></i>
+
+        <input
+          type="text"
+          id="searchEvent"
+          placeholder="Search events..."
+        >
+
+      </div>
+
+      <i class="fa fa-bell bell"></i>
+
+      <img
+        src="images/profile admin.jpeg"
+        class="admin-img"
+      >
+
+    </div>
+
+  </div>
+
+
+
+  <!-- ANALYTICS CARDS -->
+
+  <div class="cards">
+
+    <div class="card">
+
+      <h3>Upcoming Events</h3>
+
+      <p class="count" data-target="24">0</p>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Hackathons</h3>
+
+      <p class="count" data-target="8">0</p>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Workshops</h3>
+
+      <p class="count" data-target="12">0</p>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Registrations</h3>
+
+      <p class="count" data-target="1430">0</p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- QUICK ACTIONS -->
+
+  <div class="quick-actions">
+
+    <button id="createEventBtn">Create Event</button>
+
+    <button id="exportBtn">Export Events</button>
+
+    <button id="reminderBtn">Send Reminder</button>
+
+    <button id="approveAllBtn">Approve All</button>
+
+  </div>
+
+
+
+  <!-- EVENT TABLE -->
+
+  <div class="table-container">
+
+    <table>
+
+      <thead>
+
+        <tr>
+
+          <th>Banner</th>
+
+          <th>Event Name</th>
+
+          <th>Category</th>
+
+          <th>Date</th>
+
+          <th>Registrations</th>
+
+          <th>Status</th>
+
+          <th>Actions</th>
+
+        </tr>
+
+      </thead>
+
+
+      <tbody id="eventTable">
+
+        <tr class="event-row">
+
+          <td>
+            <img
+              src="images/ai.png"
+              class="event-img"
+            >
+          </td>
+
+          <td>Hackathon 2026</td>
+
+          <td>Hackathon</td>
+
+          <td>20 June 2026</td>
+
+          <td>120</td>
+
+          <td>
+            <span class="status pending">
+              Pending
+            </span>
+          </td>
+
+          <td>
+
+            <button class="approve-btn">
+              Approve
+            </button>
+
+            <button class="reject-btn">
+              Reject
+            </button>
+
+          </td>
+
+        </tr>
+
+
+
+        <tr class="event-row">
+
+          <td>
+            <img
+              src="images/workshops.jpeg"
+              class="event-img"
+            >
+          </td>
+
+          <td>AI Workshop</td>
+
+          <td>Workshop</td>
+
+          <td>28 June 2026</td>
+
+          <td>85</td>
+
+          <td>
+            <span class="status approved">
+              Approved
+            </span>
+          </td>
+
+          <td>
+
+            <button class="approve-btn">
+              Approve
+            </button>
+
+            <button class="reject-btn">
+              Reject
+            </button>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+
+  <!-- EVENT PREVIEW -->
+
+  <div class="event-preview">
+
+    <h2>Event Preview</h2>
+
+    <img
+      src="images/ai.png"
+      class="preview-img"
+    >
+
+    <h3>Hackathon 2026</h3>
+
+    <p>
+      Annual coding competition for developers.
+    </p>
+
+    <div class="preview-details">
+
+      <p>
+        <strong>Category:</strong>
+        Hackathon
+      </p>
+
+      <p>
+        <strong>Date:</strong>
+        20 June 2026
+      </p>
+
+      <p>
+        <strong>Registrations:</strong>
+        120
+      </p>
+
+      <p>
+        <strong>Venue:</strong>
+        Kampala Innovation Hub
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- RECENT ACTIVITY -->
+
+  <div class="activity-section">
+
+    <h2>Recent Activity</h2>
+
+    <ul>
+
+      <li>
+        40 users registered for Hackathon
+      </li>
+
+      <li>
+        AI Workshop approved
+      </li>
+
+      <li>
+        Reminder emails sent
+      </li>
+
+    </ul>
+
+  </div>
+
+</div>
+
+<script src="events.js"></script>
+
+</body>
+</html>

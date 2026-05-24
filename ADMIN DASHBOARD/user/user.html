@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Users Management</title>
+     <!-- boxicons  -->
+ <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <link
+    rel="stylesheet"
+    href="user.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  >
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+ <div class="sidebar">
+
+  <h2>Users</h2>
+
+ <ul>
+                     <li>
+                    <a href="../dashboard/dashboard.html" class="active">
+                   <i class='bx bx-grid-alt' ></i>
+                      <span class ="link-name">Dashboard</span>
+                 
+                    </a>
+                    </li>
+                  
+                    
+                     <li>
+                    <a href="../user/user.html">
+                     <i class='bx bx-user' ></i>
+                      <span class ="link-name">Users</span>
+                    
+                    </a>
+                    </li>
+
+                     <li>
+                    <a href="../Events/Events.html">
+                      <i class='bx bx-calendar' ></i>
+                      <span class ="link-name">Events</span>
+                    </a>
+                    </li>
+
+                     <li>
+                    <a href="../messages/messages.html">
+                   <i class='bx bx-message-rounded-dots' ></i>
+                      <span class ="link-name">Messages</span>
+                     
+                    </a>
+                    </li>
+                    
+                     <li>
+                    <a href="../report/reports.html">
+                      <i class='bx bx-bar-chart' ></i>
+                      <span class ="link-name">Reports</span>
+                    </a>
+                    </li>
+
+                     <li>
+                    <a href="../settings/settings.html">
+                      <i class='bx bx-cog' ></i>
+                      <span class ="link-name">Settings</span>
+                     
+                    </a>
+                    </li>
+ </ul>
+ </div>
+
+
+<!-- MAIN CONTENT -->
+
+<div class="main-content">
+
+  <!-- TOP BAR -->
+
+  <div class="top-bar">
+
+    <h1>
+      Users Management
+    </h1>
+
+    <div class="top-right">
+
+      <div class="search-box">
+
+        <i class="fa fa-search"></i>
+
+        <input
+          type="text"
+          id="searchUser"
+          placeholder="Search users..."
+        >
+
+      </div>
+
+      <i class="fa fa-bell bell"></i>
+
+      <img
+        src="images/profile admin.jpeg"
+        class="admin-img"
+      >
+
+    </div>
+
+  </div>
+
+
+
+  <!-- ANALYTICS CARDS -->
+
+  <div class="stats-container">
+
+    <div class="stat-card">
+      <h3>Total Users</h3>
+      <h1 id="users">250</h1>
+    </div>
+
+    <div class="stat-card">
+      <h3>Verified</h3>
+      <h1 id="verified">120</h1>
+    </div>
+
+    <div class="stat-card">
+      <h3>Banned</h3>
+      <h1 id="banned">14</h1>
+    </div>
+
+    <div class="stat-card">
+      <h3>Active Today</h3>
+      <h1 id="active">130</h1>
+    </div>
+
+  </div>
+
+
+
+  <!-- QUICK ACTIONS -->
+
+  <div class="quick-actions">
+
+    <button>Add User</button>
+
+    <button>Export Users</button>
+
+    <button>Announcement</button>
+
+    <button>Verify Pending</button>
+
+  </div>
+
+
+
+  <!-- FILTERS -->
+
+  <div class="filters">
+
+    <select>
+      <option>All Cohorts</option>
+      <option>Cohort 1</option>
+      <option>Cohort 2</option>
+      <option>Cohort 3</option>
+       <option>Cohort 4</option>
+      <option>Cohort 5</option>
+      <option>Cohort 6</option>
+      <option>Cohort 7</option>
+       <option>Cohort 8</option>
+      <option>Cohort 9</option>
+      <option>Cohort 10</option>
+       <option>Cohort11</option>
+      <option>Cohort 12</option>
+      <option>Cohort 12</option>
+      <option>Cohort 14</option>
+        <option>Cohort 15</option>
+    </select>
+
+    <select>
+      <option>All Status</option>
+      <option>Verified</option>
+      <option>Pending</option>
+    </select>
+
+  </div>
+
+
+
+  <!-- USER TABLE -->
+
+  <div class="table-container">
+
+    <table>
+
+      <thead>
+
+        <tr>
+
+          <th>Profile</th>
+
+          <th>Name</th>
+
+          <th>Email</th>
+
+          <th>Cohort</th>
+
+          <th>Status</th>
+
+          <th>Actions</th>
+
+        </tr>
+
+      </thead>
+
+
+      <tbody id="userTable">
+
+        <tr class="user-row">
+
+          <td>
+            <img
+              src="images/workshops.jpeg"
+              class="profile-img"
+            >
+          </td>
+
+          <td>Precious Peace</td>
+
+          <td>peace@gmail.com</td>
+
+          <td>Cohort 5</td>
+
+          <td>
+            <span class="status verified">
+              Verified
+            </span>
+          </td>
+
+          <td>
+
+            <button class="verify-btn">
+              Verify
+            </button>
+
+            <button class="delete-btn">
+              Delete
+            </button>
+
+          </td>
+
+        </tr>
+
+
+
+        <tr class="user-row">
+
+          <td>
+            <img
+              src="images/workshops.jpeg"
+              class="profile-img"
+            >
+          </td>
+
+          <td>Nabirah</td>
+
+          <td>nabirah@gmail.com</td>
+
+          <td>Cohort 4</td>
+
+          <td>
+            <span class="status pending">
+              Pending
+            </span>
+          </td>
+
+          <td>
+
+            <button class="verify-btn">
+              Verify
+            </button>
+
+            <button class="delete-btn">
+              Delete
+            </button>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+
+  <!-- USER PROFILE PREVIEW -->
+
+  <div class="profile-preview" id="profilePreview">
+
+    <h2>User Profile</h2>
+
+    <img
+      src="images/workshops.jpeg"
+      class="preview-img"
+    >
+
+    <h3>Precious Peace</h3>
+
+    <p>
+      Frontend Developer & UI/UX Designer
+    </p>
+
+    <div class="preview-details">
+
+      <p><strong>Skills:</strong> HTML, CSS, JS</p>
+
+      <p><strong>Projects:</strong> Beyond Cohorts App</p>
+
+      <p><strong>Cohort:</strong> Cohort 5</p>
+
+      <p><strong>Events:</strong> 12 Attended</p>
+
+      <p><strong>Certificates:</strong> 4 Uploaded</p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- ACTIVITY SECTION -->
+
+  <div class="activity-section">
+
+    <h2>Recent Activity</h2>
+
+    <ul>
+
+      <li>
+        Sarah joined Cohort 5
+      </li>
+
+      <li>
+        Peace logged in 2 mins ago
+      </li>
+
+      <li>
+        Report submitted on spam user
+      </li>
+
+    </ul>
+
+  </div>
+
+</div>
+
+<script src="user.js"></script>
