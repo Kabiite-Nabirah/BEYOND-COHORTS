@@ -19,8 +19,9 @@
         <aside>
              <div  class ="top">
                 <div class="logo">
-                    <img src="images/logo.png" alt="Logo">
-                    <h2>Beyond<span class=" purple-blue">-cohort</span></h2>
+      <img src="" alt="Beyond Cohorts" class="logo-img">
+                  
+                    
                 </div>
                
              </div>
@@ -43,11 +44,12 @@
                     </li>
 
                      <li>
-                    <a href="../Events/Events.html">
+                    <a href="/Events/Events.html">
                       <i class='bx bx-calendar' ></i>
                       <span class ="link-name">Events</span>
                     </a>
                     </li>
+
 
                      <li>
                     <a href="../messages/messages.html">
@@ -117,7 +119,7 @@
       <i class="fa fa-bell bell"></i>
 
       <img
-        src="images/profile admin.jpeg"
+        src="assets/profile admin.jpeg"
         class="admin-img"
       >
 
@@ -312,6 +314,8 @@
 
 <script src="wheel.js"></script>
 
+
+
 </body>
 </html>
     </section>
@@ -320,4 +324,15 @@
     <script src="dashboard.js"></script>
     
 </body>
+
+<script>
+  const token = localStorage.getItem("token");
+  const loggedIn = localStorage.getItem("adminLoggedIn");
+
+  if (!token || !loggedIn) {
+    // Redirect to login if not authenticated
+    window.location.href = "../AdminLogin/login.html";
+  }
+</script>
+
 </html>

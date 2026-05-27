@@ -134,19 +134,38 @@ img { display: block; max-width: 100%; }
   padding-top: 14px;
   padding-bottom: 14px;
 }
-.logo { display: flex; align-items: center; gap: 10px; }
-.logo-mark {
-  width: 38px; height: 38px;
-  border-radius: 10px;
-  background: var(--purple);
-  color: #fff;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 18px;
-  flex-shrink: 0;
+.logo{
+  display:flex;
+  align-items:center;
+  gap:14px;
 }
-.logo-name { display: block; font-size: 15px; font-weight: 600; color: var(--text-main); }
-.logo-sub  { display: block; font-size: 11px; color: var(--text-muted); }
 
+.logo-img{
+  width:55px;
+  height:55px;
+  object-fit:cover;
+  border-radius:14px;
+}
+
+/* TEXT BESIDE IMAGE */
+.logo div{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.logo-name{
+  font-size:22px;
+  font-weight:700;
+  color:#1A1A1A;
+  line-height:1.1;
+}
+
+.logo-sub{
+  font-size:13px;
+  color:#6B7280;
+  margin-top:3px;
+}
 .nav-links {
   display: flex;
   gap: 4px;
@@ -676,6 +695,64 @@ img { display: block; max-width: 100%; }
   .footer-grid { grid-template-columns: 1fr; }
 }
 
+   CSS
+/* DARK MODE */
+
+body.dark-mode{
+  background:#121212;
+  color:white;
+}
+
+/* TOGGLE BUTTON */
+
+.theme-toggle{
+  width:70px;
+  height:35px;
+  background:#ddd;
+  border-radius:50px;
+  position:relative;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  padding:5px;
+  transition:0.3s;
+}
+
+body.dark-mode .theme-toggle{
+  background:#333;
+}
+
+.toggle-circle{
+  width:25px;
+  height:25px;
+  background:white;
+  border-radius:50%;
+  position:absolute;
+  left:5px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:0.3s ease;
+  color:#f5b301;
+}
+
+body.dark-mode .toggle-circle{
+  left:40px;
+  background:#222;
+  color:white;
+}
+
+/* EXAMPLE COMPONENTS */
+
+body.dark-mode .navbar,
+body.dark-mode .sidebar,
+body.dark-mode .card,
+body.dark-mode .dashboard{
+  background:#1e1e1e;
+  color:white;
+}
+
+
 </style>
 
 
@@ -687,38 +764,60 @@ img { display: block; max-width: 100%; }
   <nav class="navbar">
     <div class="container nav-inner">
       <div class="logo">
-        <div class="logo-mark"><i class="ti ti-crown"></i></div>
-        <div>
+        
+      <img src="assets/Beyond cohorts.jpeg" alt="Beyond Cohorts" class="logo-img">
+      </a>
+      <div>
           <span class="logo-name">Beyond Cohorts</span>
           <span class="logo-sub">Digital Sisterhood</span>
         </div>
       </div>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#" class="active">Home</a></li>
-        <li><a href="#community">Community</a></li>
-        <li><a href="#events">Events</a></li>
-        <li><a href="#mentorship">Mentorship</a></li>
-        <li><a href="#opportunities">Opportunities</a></li>
+        <li><a href="home.html" class="active">Home</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="mentorship.html">Mentorship</a></li>
+        <li><a href="opportunities.html">Opportunities</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="#" class="btn btn-outline">Log in</a>
-        <a href="#" class="btn btn-primary">Join Now</a>
+        <a href="login.html" class="btn btn-outline">Log in</a>
+        <a href="signup.html" class="btn btn-primary">Join Now</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <i class="ti ti-menu-2"></i>
       </button>
     </div>
+
+ 
+
+
+
+
+<div class="theme-toggle" id="themeToggle">
+
+  <div class="toggle-circle" id="toggleIcon">
+    <i class="fa-solid fa-sun"></i>
+  </div>
+
+</div>
+<!-- Logout Button -->
+ <nav class="nav-links" id="navLinks">
+<a href="login.html" class="logout-btn" onclick="logout()">
+  Logout
+</a>
+
+
   </nav>
 
   <!-- ── HERO ───────────────────────────────────────── -->
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-text">
-        <h1>Building Digital<br><span class="accent">Sisterhood</span><br>Beyond Cohorts</h1>
+        <h1> Tech<br><span class="accent">Sisterhood</span><br>Beyond Cohorts</h1>
         <p class="hero-desc">A unified community of Code Queen alumni empowering each other through mentorship, opportunities, leadership and collaboration.</p>
         <div class="hero-btns">
-          <a href="#" class="btn btn-primary btn-lg">Join the Sisterhood</a>
-          <a href="#opportunities" class="btn btn-outline btn-lg">Explore Opportunities</a>
+          <a href="signup.html" class="btn btn-primary btn-lg">Join the Sisterhood</a>
+          <a href="opportunities.html" class="btn btn-outline btn-lg">Explore Opportunities</a>
         </div>
         <div class="hero-social-proof">
           <div class="avatars">
@@ -781,24 +880,20 @@ img { display: block; max-width: 100%; }
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon purple"><i class="ti ti-user-heart"></i></div>
-          <h3>Mentorship</h3>
+          <h3><a href="mentorship.html">Mentorship</a></h3>
           <p>Get matched with mentors who guide you on your career journey.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon teal"><i class="ti ti-calendar-event"></i></div>
-          <h3>Events</h3>
+          <h3><a href="events.html">Events</a></h3>
           <p>Join Sisterhood Fridays, webinars, hackathons and cohort meetups.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon amber"><i class="ti ti-briefcase"></i></div>
-          <h3>Opportunities</h3>
+          <h3><a href="opportunities.html">Opportunities</a></h3>
           <p>Find jobs, internships, scholarships and other opportunities.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon coral"><i class="ti ti-crown"></i></div>
-          <h3>Leadership</h3>
-          <p>Run for leadership positions, vote and shape the future of our community.</p>
-        </div>
+        
       </div>
     </div>
   </section>
@@ -1006,7 +1101,7 @@ img { display: block; max-width: 100%; }
         <h2>Ready to grow beyond your cohort?</h2>
         <p>Join a community that uplifts, empowers and celebrates you.</p>
       </div>
-      <a href="#" class="btn btn-cta">Join the Sisterhood</a>
+      <a href="signup.html" class="btn btn-cta">Join the Sisterhood</a>
     </div>
   </section>
 
@@ -1027,7 +1122,7 @@ img { display: block; max-width: 100%; }
           <a href="#" aria-label="Twitter"><i class="ti ti-brand-twitter"></i></a>
           <a href="#" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
           <a href="#" aria-label="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
-          <a href="#" aria-label="YouTube"><i class="ti ti-brand-youtube"></i></a>
+          
         </div>
       </div>
       <div class="footer-col">
@@ -1074,6 +1169,6 @@ img { display: block; max-width: 100%; }
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="./js/home.js"></script>
 </body>
 </html>

@@ -1,16 +1,21 @@
 // dashboard-protection.js
 
-if(localStorage.getItem("adminLoggedIn") !== "true"){
+const token = localStorage.getItem("token");
+const loggedIn = localStorage.getItem("adminLoggedIn");
 
-    window.location.href = "../adminlogin/adminlogin.html";
-
+if (!token || !loggedIn) {
+  // Redirect if not authenticated
+  window.location.href = "../AdminLogin/login.html";
 }
+
 
 /* LOGOUT FUNCTION */
 function logout(){
 
     localStorage.removeItem("adminLoggedIn");
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
 
-    window.location.href = "../adminlogin/adminlogin.html";
+    window.location.href = "../AdminLogin/login.html";
 
 }

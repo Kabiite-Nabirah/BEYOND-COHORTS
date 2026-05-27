@@ -1,72 +1,47 @@
 const loginForm = document.getElementById("loginForm");
+const feedback = document.getElementById("feedback");
 
 loginForm.addEventListener("submit", async (e) => {
-
   e.preventDefault();
 
-  const email = document.getElementById("loginEmail").value;
-
+  const username = document.getElementById("loginUsername").value;
   const password = document.getElementById("loginPassword").value;
 
+  feedback.style.color = "#534AB7";
+  feedback.textContent = "Logging in...";
+
   try {
-
-    const response = await fetch("http://localhost:5000/api/auth/login", {
-
+    const response = await fetch("http://localhost:5000/api/auth/login",
+       {
       method: "POST",
-
       headers: {
         "Content-Type": "application/json"
       },
-
-      body: JSON.stringify({
-        email,
-        password
-      })
+      body: JSON.stringify({ username, password })
     });
 
     const data = await response.json();
 
-    if(response.ok){
 
-      localStorage.setItem("token", data.token);
+    
 
-      localStorage.setItem("user", JSON.stringify(data));
+    if (response.ok) {
+      localStorage.setItem("token", data.accessToken);
+localStorage.setItem("user", JSON.stringify(data.profile));
 
-      alert("Login successful");
+      feedback.style.color = "green";
+      feedback.textContent = "Login successful! Redirecting...";
 
-      window.location.href = "home.html";
-
+      setTimeout(() => {
+        window.location.href = "home.html";
+      }, 1500);
     } else {
-
-      alert(data.message);
+      feedback.style.color = "red";
+      feedback.textContent = data.message || "Invalid credentials";
     }
-
-  } catch(error){
-
+  } catch (error) {
     console.log(error);
-
-    alert("Server error");
+    feedback.style.color = "red";
+    feedback.textContent = "Server error. Please try again.";
   }
-
 });
-
-// function logout(){
-
-//   localStorage.removeItem("token");
-
-//   localStorage.removeItem("user");
-
-//   window.location.href = "login.html";
-// }
-
-// const token = localStorage.getItem("token");
-
-// if(!token){
-
-//   window.location.href = "login.html ";
-// }
-
-
-// const user = JSON.parse(localStorage.getItem("user"));
-
-// console.log(user.fullName);

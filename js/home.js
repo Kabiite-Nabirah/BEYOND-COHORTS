@@ -229,3 +229,72 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+
+
+const themeToggle = document.getElementById("themeToggle");
+const toggleIcon = document.getElementById("toggleIcon");
+
+// LOAD SAVED THEME
+if(localStorage.getItem("theme") === "dark"){
+
+  document.body.classList.add("dark-mode");
+
+  if(toggleIcon){
+    toggleIcon.innerHTML =
+    '<i class="fa-solid fa-moon"></i>';
+  }
+
+} else {
+
+  if(toggleIcon){
+    toggleIcon.innerHTML =
+    '<i class="fa-solid fa-sun"></i>';
+  }
+
+}
+
+// TOGGLE THEME
+if(themeToggle){
+
+  themeToggle.addEventListener("click", () => {
+
+    document.body.classList.toggle("dark-mode");
+
+    // SAVE THEME
+    if(document.body.classList.contains("dark-mode")){
+
+      localStorage.setItem("theme", "dark");
+
+      if(toggleIcon){
+        toggleIcon.innerHTML =
+        '<i class="fa-solid fa-moon"></i>';
+      }
+
+    } else {
+
+      localStorage.setItem("theme", "light");
+
+      if(toggleIcon){
+        toggleIcon.innerHTML =
+        '<i class="fa-solid fa-sun"></i>';
+      }
+
+    }
+
+  });
+
+}
+//redirect to home page if not logged in
+if (!localStorage.getItem("token")) 
+
+function logout(){
+
+  // remove saved user data
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+
+  // redirect to login page
+  window.location.href = "login.html";
+}
+

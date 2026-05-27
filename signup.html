@@ -171,7 +171,7 @@ body{
   }
 }
 
-  </style>>
+  </style>
 </head>
 <body>
 
@@ -197,6 +197,11 @@ body{
         <p class="subtitle">Signup to continue your journey.</p>
 
         <div class="input-group">
+          <label>Full Name</label>
+          <input type="text" id="signupName" placeholder="Enter your name" required>
+        </div>
+
+        <div class="input-group">
           <label>Email</label>
           <input type="email" id="signupEmail" placeholder="Enter your email" required>
         </div>
@@ -206,12 +211,18 @@ body{
           <input type="password" id="signupPassword" placeholder="Enter your password" required>
         </div>
 
-        <button type="submit" class="btn-primary">Signup</button>
 
-        <p class="switch-text">
-          Don't have an account?
-          <a href="login.html">Login</a>
-        </p>
+        <div class="input-group">
+          <label>Cohort</label>
+          <input type="text" id="signupCohort" placeholder="Enter your cohort" required>
+        </div>
+
+
+
+        
+        <button type="submit" a href ="home.html" class="btn-primary" >Signup</button>
+
+        
 
       </form>
 
@@ -219,6 +230,6 @@ body{
 
   </div>
 
-  <script src="signup.js"></script>
+  <script src="./js/signup.js"></script>
 </body>
 </html>

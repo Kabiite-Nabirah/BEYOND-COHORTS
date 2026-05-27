@@ -44,7 +44,7 @@
             width: 100%;
             height: 100%;
            
-            background: linear-gradient(135deg, rgba(27, 14, 32, 0.85), rgba(5, 110, 139, 0.75));
+            background: linear-gradient(135deg, rgba(142, 12, 194, 0.85), rgba(5, 110, 139, 0.75));
             z-index: 1;
         }
 
@@ -312,7 +312,7 @@
 
         .feature-card:hover {
             transform: translateY(-8px);
-            border-color: #056e8b;
+            border-color: #826aec;
             box-shadow: 0 15px 40px rgba(5, 110, 139, 0.2);
             background: white;
         }
@@ -339,8 +339,11 @@
         /* Stats Section */
         .stats-section {
             padding: 75px 20px;
-            background: linear-gradient(135deg, #1b0e20, #056e8b);
-            color: white;
+            background:linear-gradient(
+        90deg,
+        #4114aa,
+        #275ed4
+    );
         }
 
         .stats-grid {
@@ -388,7 +391,11 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #1b0e20, #056e8b);
+            background:linear-gradient(
+        90deg,
+        #4114aa,
+        #275ed4
+    );
             color: white;
             padding: 18px 48px;
             border-radius: 50px;
@@ -546,6 +553,8 @@
                 font-size: 8px;
             }
         }
+
+     
     </style>
 </head>
 
@@ -574,17 +583,17 @@
             <p class="tagline">Where digital sisterhood meets opportunity. One community, beyond boundaries.</p>
 
             <div class="hub-container" id="hubContainer">
-                <a href="signup.html" class="center-node-link">
+                <a href="#" class="center-node-link">
                     <div class="center-node">
                         <div class="center-text">BEYOND<br>COHORT</div>
                     </div>
                 </a>
 
-                <div class="surrounding-node node-1"><a href="home.html">Home</a></div>
-                <div class="surrounding-node node-2"><a href="community.html">Community</a></div>
-                <div class="surrounding-node node-3"><a href="events.html">Events</a></div>
-                <div class="surrounding-node node-4"><a href="opportunities.html">Opportunities</a></div>
-                <div class="surrounding-node node-5"><a href="mentorship.html">Mentorship</a></div>
+                <div class="surrounding-node node-1"><a href=#>Home</a></div>
+                <div class="surrounding-node node-2"><a href=#>Community</a></div>
+                <div class="surrounding-node node-3"><a href="#">Events</a></div>
+                <div class="surrounding-node node-4"><a href=#>Opportunities</a></div>
+                <div class="surrounding-node node-5"><a href="#">Mentorship</a></div>
             </div>
 
             <a href="signup.html" class="cta-button">Join the Sisterhood →</a>
@@ -614,11 +623,7 @@
                     <h3>Sisterhood Fridays</h3>
                     <p>Weekly community events for networking, learning, and building lasting connections.</p>
                 </div>
-                <div class="feature-card">
-                  
-                    <h3>Leadership</h3>
-                    <p>Take initiative, lead projects, and shape the future of our alumni community.</p>
-                </div>
+                
                 <div class="feature-card">
                                      <h3>Community</h3>
                     <p>Engage in meaningful discussions, share knowledge, and support each other's growth.</p>
@@ -673,7 +678,11 @@
         </div>
     </section>
 
+ 
     <script>
+
+        // connect to backend
+        // const API_BASE_URL = 'http://localhost:5000/api';
         document.addEventListener('DOMContentLoaded', function () {
             const hubContainer = document.getElementById('hubContainer');
             const nodes = document.querySelectorAll('.surrounding-node');
@@ -704,6 +713,7 @@
                 hubContainer.appendChild(line);
             });
         });
+        
     </script>
 </body>
 

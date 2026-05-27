@@ -51,44 +51,45 @@ body {
   backdrop-filter: blur(10px);
 }
 
-.nav-container {
-  max-width: 1180px;
-  margin: auto;
-  height: 70px;
-  padding: 0 24px;
+.nav-inner {
   display: flex;
   align-items: center;
+  gap: 32px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:14px;
 }
 
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color: var(--text);
+.logo-img{
+  width:55px;
+  height:55px;
+  object-fit:cover;
+  border-radius:14px;
 }
 
-.logo-mark {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  background: var(--purple);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* TEXT BESIDE IMAGE */
+.logo div{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 
-.logo-name {
-  display: block;
-  font-weight: 700;
+.logo-name{
+  font-size:22px;
+  font-weight:700;
+  color:#1A1A1A;
+  line-height:1.1;
 }
 
-.logo-sub {
-  font-size: 11px;
-  color: var(--muted);
+.logo-sub{
+  font-size:13px;
+  color:#6B7280;
+  margin-top:3px;
 }
-
 .nav-links {
   margin-left: auto;
   display: flex;
@@ -517,14 +518,17 @@ select {
 
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="index.html" class="nav-logo">
-        <div class="logo-mark"><i class="ti ti-crown"></i></div>
-        <div>
+    <div class="container nav-inner">
+      <div class="logo">
+        
+      <img src="assets/Beyond cohorts.jpeg" alt="Beyond Cohorts" class="logo-img">
+      </a>
+      <div>
           <span class="logo-name">Beyond Cohorts</span>
           <span class="logo-sub">Digital Sisterhood</span>
         </div>
-      </a>
+      </div>
+
 
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
@@ -797,6 +801,6 @@ select {
     <span id="toastMessage">Success</span>
   </div>
 
-  <script src="events.js"></script>
+  <script src="./js/events.js"></script>
 </body>
 </html>

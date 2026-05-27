@@ -1,34 +1,40 @@
 const loginForm = document.getElementById("loginForm");
 const message = document.getElementById("message");
 
-const adminUsername = "admin";
-const adminPassword = "12345";
+loginForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-loginForm.addEventListener("submit", function(e){
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
 
-    e.preventDefault();
+  try {
+    const res = await fetch("http://localhost:5000/api/admin/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password })
+    });
 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+    const data = await res.json();
 
-    if(username === adminUsername && password === adminPassword){
+    if (res.ok) {
+      // ✅ Save token and user info
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("adminLoggedIn", "true");
+      localStorage.setItem("user", JSON.stringify(data.user));
 
-        message.style.color = "lightgreen";
-        message.textContent = "Login Successful";
+      message.style.color = "lightgreen";
+      message.textContent = "Login Successful";
 
-        localStorage.setItem("adminLoggedIn", "true");
-
-        setTimeout(() => {
-
-            window.location.href = "../dashboard/dashboard.html";
-
-        }, 1000);
-
-    }else{
-
-        message.style.color = "#ce1515";
-        message.textContent = "Invalid Username or Password";
-
+      setTimeout(() => {
+        window.location.href = "../dashboard/dashboard.html";
+      }, 1000);
+    } else {
+      message.style.color = "#ce1515";
+      message.textContent = data.message || "Invalid Username or ";
     }
-
+  } catch (err) {
+    message.style.color = "#ce1515";
+    message.textContent = "Server error. Please try again.";
+    console.error(err);
+  }
 });
