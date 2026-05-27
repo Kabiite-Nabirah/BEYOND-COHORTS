@@ -109,4 +109,66 @@ links.forEach(link => {
     }
   });
 });
-```
+
+async function loadApprovedEvents(){
+
+  try {
+
+    const res = await fetch(
+    "http://localhost:5000/api/events"
+    );
+
+    const events =
+    await res.json();
+
+    // FILTER ONLY APPROVED
+    const approvedEvents =
+    events.filter(event =>
+      event.status === "Approved"
+    );
+
+    const container =
+    document.getElementById(
+    "approvedEvents"
+    );
+
+    container.innerHTML = "";
+
+    approvedEvents.forEach(event => {
+
+      const card =
+      document.createElement("div");
+
+      card.classList.add("event-card");
+
+      card.innerHTML = `
+
+        <img
+        src="images/ai.png">
+
+        <h3>${event.title}</h3>
+
+        <p>${event.category}</p>
+
+        <p>
+        ${new Date(event.date)
+        .toLocaleDateString()}
+        </p>
+
+      `;
+
+      container.appendChild(card);
+
+    });
+
+  } catch(err){
+
+    console.log(err);
+
+  }
+
+}
+
+window.onload =
+loadApprovedEvents;
+

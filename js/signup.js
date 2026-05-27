@@ -23,7 +23,7 @@ if (response.ok) {
   alert("Signup successful");
   window.location.href = "home.html";
 } else {
-  alert(data.message);
+alert(data.message || data.error || "Something went wrong");
 }
 
 

@@ -18,12 +18,23 @@ const applyButtons = document.querySelectorAll(".course-card button");
 
 const closeModal = document.querySelector(".close-modal");
 
+let currentOpportunityId = null;
+
+const BASE_URL = "http://localhost:5000/api";
+
 /* OPEN MODAL */
 
 applyButtons.forEach((button) => {
 
   button.addEventListener("click", () => {
 
+    // Get the opportunity card and extract data
+    const card = button.closest(".course-card");
+    const title = card.querySelector("h2").textContent;
+    
+    // Store current opportunity title (can be extended to store ID if available)
+    currentOpportunityId = title;
+    
     modal.classList.add("active");
 
   });
@@ -56,7 +67,7 @@ const applicationForm = document.querySelector(".application-form");
 
 const formMessage = document.querySelector(".form-message");
 
-applicationForm.addEventListener("submit", (e) => {
+applicationForm.addEventListener("submit", async (e) => {
 
   e.preventDefault();
 
@@ -71,21 +82,54 @@ applicationForm.addEventListener("submit", (e) => {
   if(!fullName || !email || !phone || !cv){
 
     formMessage.textContent = "Please fill in all fields.";
+    formMessage.style.color = "#ef4444";
 
     return;
   }
 
-  formMessage.textContent = "Application submitted successfully 🚀";
+  try {
+    const button = applicationForm.querySelector("button");
+    button.disabled = true;
+    button.textContent = "Submitting...";
 
-  applicationForm.reset();
+    // For now, we'll submit to a local storage (since we don't have the opportunity ID from the frontend)
+    // In a full implementation, we'd need opportunity IDs on the cards
+    const application = {
+      fullName,
+      email,
+      phone,
+      opportunityTitle: currentOpportunityId,
+      appliedAt: new Date().toISOString()
+    };
 
-  setTimeout(() => {
+    // Store in localStorage for now
+    const applications = JSON.parse(localStorage.getItem("applications") || "[]");
+    applications.push(application);
+    localStorage.setItem("applications", JSON.stringify(applications));
 
-    modal.classList.remove("active");
+    formMessage.textContent = "Application submitted successfully 🚀";
+    formMessage.style.color = "#10b981";
 
-    formMessage.textContent = "";
+    applicationForm.reset();
 
-  }, 2000);
+    setTimeout(() => {
+
+      modal.classList.remove("active");
+
+      formMessage.textContent = "";
+      button.disabled = false;
+      button.textContent = "Submit Application";
+
+    }, 2000);
+
+  } catch (error) {
+    console.error("Error submitting application:", error);
+    formMessage.textContent = "Error submitting application. Please try again.";
+    formMessage.style.color = "#ef4444";
+    const button = applicationForm.querySelector("button");
+    button.disabled = false;
+    button.textContent = "Submit Application";
+  }
 
 });
 

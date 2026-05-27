@@ -4,8 +4,8 @@ const feedback = document.getElementById("feedback");
 loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const username = document.getElementById("loginUsername").value;
-  const password = document.getElementById("loginPassword").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
   feedback.style.color = "#534AB7";
   feedback.textContent = "Logging in...";
@@ -17,7 +17,7 @@ loginForm.addEventListener("submit", async (e) => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ username, password })
+      body: JSON.stringify({ email, password })
     });
 
     const data = await response.json();
@@ -26,8 +26,8 @@ loginForm.addEventListener("submit", async (e) => {
     
 
     if (response.ok) {
-      localStorage.setItem("token", data.accessToken);
-localStorage.setItem("user", JSON.stringify(data.profile));
+      localStorage.setItem("token", data.token);
+localStorage.setItem("user", JSON.stringify(data.user));
 
       feedback.style.color = "green";
       feedback.textContent = "Login successful! Redirecting...";

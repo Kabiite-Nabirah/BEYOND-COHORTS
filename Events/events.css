@@ -215,7 +215,9 @@ th, td{
 /* BUTTONS */
 
 .approve-btn,
-.reject-btn{
+.reject-btn,
+.edit-btn,
+.delete-btn {
     border:none;
     padding:10px 14px;
     border-radius:10px;
@@ -230,6 +232,64 @@ th, td{
 
 .reject-btn{
     background:rgb(62, 118, 223);
+}
+
+/* ICON BUTTONS */
+
+.icon-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 4px 6px;
+    margin-right: 4px;
+    border-radius: 4px;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+}
+
+.icon-btn.approve-btn {
+    color: white;
+    background: #999;
+}
+
+.icon-btn.approve-btn:hover {
+    background: #777;
+    transform: scale(1.08);
+}
+
+.icon-btn.reject-btn {
+    color: white;
+    background: #bbb;
+}
+
+.icon-btn.reject-btn:hover {
+    background: #999;
+    transform: scale(1.08);
+}
+
+.icon-btn.edit-btn {
+    color: white;
+    background: #aaa;
+}
+
+.icon-btn.edit-btn:hover {
+    background: #888;
+    transform: scale(1.08);
+}
+
+.icon-btn.delete-btn {
+    color: white;
+    background: #999;
+}
+
+.icon-btn.delete-btn:hover {
+    background: #777;
+    transform: scale(1.08);
 }
 
 
@@ -260,4 +320,199 @@ th, td{
 
 .activity-section li{
     margin:15px 0;
+}
+
+/* =========================
+   MODAL STYLES
+========================= */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background-color: white;
+  margin: 3% auto;
+  padding: 0;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s;
+  max-height: 85vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  border-bottom: 1px solid #eee;
+  background: linear-gradient(135deg, #3f2ab8 0%, #1c5bd1 100%);
+  color: white;
+  border-radius: 15px 15px 0 0;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.close {
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  color: white;
+}
+
+.close:hover {
+  opacity: 0.7;
+}
+
+#addEventForm {
+  padding: 25px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: 0.3s;
+  font-family: Arial, sans-serif;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #3f2ab8;
+  box-shadow: 0 0 8px rgba(63, 42, 184, 0.2);
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.btn-submit,
+.btn-cancel {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, #3f2ab8 0%, #1c5bd1 100%);
+  color: white;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(63, 42, 184, 0.3);
+}
+
+.btn-cancel {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.btn-cancel:hover {
+  background: #e0e0e0;
+}
+
+.form-message {
+  margin-top: 15px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.form-message.success {
+  background: #d4ffe2;
+  color: #2d5f3f;
+}
+
+.form-message.error {
+  background: #ffe2e2;
+  color: #8b3333;
+}
+
+/* =========================
+   RESPONSIVE MODAL
+========================= */
+
+@media(max-width: 600px) {
+  .modal-content {
+    width: 95%;
+    margin: 20% auto;
+  }
+
+  .modal-header {
+    padding: 20px;
+  }
+
+  .modal-header h2 {
+    font-size: 20px;
+  }
+
+  #addEventForm {
+    padding: 20px;
+  }
 }

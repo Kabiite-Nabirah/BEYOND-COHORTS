@@ -63,3 +63,22 @@ buttons.forEach(button => {
     });
 
 });
+
+const logoutBtn =
+document.getElementById("logoutBtn");
+
+logoutBtn.addEventListener(
+  "click",
+  function(){
+
+    // Remove saved login data
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    alert("Logged out successfully");
+
+    // Redirect to login/signup page
+    window.location.href =
+    "../AdminLogin/adminlogin.html";
+
+});
