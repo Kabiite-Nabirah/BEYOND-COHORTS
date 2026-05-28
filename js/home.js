@@ -82,7 +82,28 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 2500);
     });
   });
+/* ── PROFILE INTERACTIVITY ───────────────────────── */
 
+const editBtn = document.querySelector(".edit-btn");
+const followBtn = document.querySelector(".follow-btn");
+
+/* Edit Profile */
+editBtn.addEventListener("click", () => {
+  alert("Edit Profile Feature Coming Soon!");
+});
+
+/* Follow Button Toggle */
+followBtn.addEventListener("click", () => {
+
+  if(followBtn.innerText === "Follow"){
+    followBtn.innerText = "Following";
+    followBtn.style.background = "#0F6E56";
+  } else {
+    followBtn.innerText = "Follow";
+    followBtn.style.background = "#534AB7";
+  }
+
+});
 
   /* ── 5. APPLY BUTTON FEEDBACK ─────────────────────── */
   document.querySelectorAll(".btn-apply").forEach((btn) => {

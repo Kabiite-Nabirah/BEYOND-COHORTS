@@ -143,6 +143,232 @@ img { display: block; max-width: 100%; }
   border-radius: 12px;
   object-fit: cover;
 }
+
+/* /user profile/ */
+/* ── PROFILE SECTION ─────────────────────────────── */
+
+.profile-section{
+  padding:80px 0;
+  background:var(--gray-100);
+}
+
+.profile-card{
+  background:#fff;
+  border-radius:24px;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:320px 1fr;
+  box-shadow:var(--shadow-md);
+}
+
+/* LEFT SIDE */
+
+.profile-left{
+  background:linear-gradient(135deg,#534AB7,#7F77DD);
+  color:#fff;
+  padding:40px 28px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.profile-image{
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  overflow:hidden;
+  border:5px solid rgba(255,255,255,0.3);
+  margin-bottom:20px;
+}
+
+.profile-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.profile-name{
+  font-size:26px;
+  font-weight:700;
+}
+
+.profile-role{
+  font-size:14px;
+  opacity:0.85;
+  margin-top:4px;
+}
+
+.profile-badge{
+  margin-top:18px;
+  background:rgba(255,255,255,0.15);
+  padding:8px 16px;
+  border-radius:30px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:13px;
+}
+
+.edit-btn{
+  margin-top:28px;
+  background:#fff;
+  color:var(--purple);
+}
+
+/* RIGHT SIDE */
+
+.profile-right{
+  padding:40px;
+}
+
+.profile-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:20px;
+}
+
+.profile-top h2{
+  font-size:28px;
+}
+
+.follow-btn{
+  border:none;
+  background:var(--purple);
+  color:#fff;
+  padding:10px 20px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.profile-bio{
+  color:var(--text-muted);
+  line-height:1.8;
+  margin-bottom:30px;
+}
+
+/* STATS */
+
+.profile-stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-bottom:30px;
+}
+
+.profile-stat{
+  background:var(--purple-light);
+  padding:20px;
+  border-radius:16px;
+  text-align:center;
+}
+
+.profile-stat strong{
+  display:block;
+  font-size:26px;
+  color:var(--purple);
+}
+
+.profile-stat span{
+  font-size:13px;
+  color:var(--text-muted);
+}
+
+/* SKILLS */
+
+.profile-skills h3{
+  margin-bottom:14px;
+}
+
+.skills-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.skills-list span{
+  background:var(--gray-100);
+  padding:8px 16px;
+  border-radius:30px;
+  font-size:13px;
+  border:1px solid var(--border);
+}
+
+/* SOCIALS */
+
+.profile-socials{
+  margin-top:30px;
+  display:flex;
+  gap:14px;
+}
+
+.profile-socials a{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  background:var(--purple-light);
+  color:var(--purple);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  transition:0.2s;
+}
+
+.profile-socials a:hover{
+  background:var(--purple);
+  color:#fff;
+}
+
+/* DARK MODE */
+
+.dark-mode .profile-card{
+  background:#1e1e1e;
+}
+
+.dark-mode .profile-right{
+  color:#fff;
+}
+
+.dark-mode .profile-bio{
+  color:#cfcfcf;
+}
+
+.dark-mode .skills-list span{
+  background:#2b2b2b;
+  color:#fff;
+  border-color:#444;
+}
+
+.dark-mode .profile-stat{
+  background:#2a2a2a;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+  .profile-card{
+    grid-template-columns:1fr;
+  }
+
+  .profile-right{
+    padding:28px;
+  }
+
+  .profile-stats{
+    grid-template-columns:1fr;
+  }
+
+  .profile-top{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:14px;
+  }
+
+}
 /* ── HERO ─────────────────────────────────────────── */
 .hero {
   background: linear-gradient(135deg, #F9F8FF 0%, #F0FFF8 100%);
